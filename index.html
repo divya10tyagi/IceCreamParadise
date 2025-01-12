@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ice Cream Paradise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #fb8888;
+            --secondary-color: #f78787;
+            --accent-color: #f5c564;
+            --text-color: #333;
+            --background-color: #F0E6FA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Lobster', cursive;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .hero {
+            background-image: url('https://images.unsplash.com/photo-1501443762994-82bd5dace89a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #FFC700;
+        }
+
+        .featured-products {
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .about-us {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .about-us p {
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Ice Cream Paradise</h1>
+            <nav>
+                <ul>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="flavors.html">Flavors</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h2>Welcome to a World of Pure Imagination</h2>
+                <p>Discover ice cream flavors beyond your wildest dreams!</p>
+                <h3 class="btn">Explore Flavors</h3>
+            </div>
+        </section>
+
+        <section class="featured-products" id="flavors">
+            <div class="container">
+                <h2>Our Magical Flavors</h2>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1560008581-09826d1de69e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=744&q=80" alt="Chocolate River Swirl">
+                        <h3>Chocolate River Swirl</h3>
+                        <p>Dive into a creamy chocolate adventure!</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1516043827470-d52c543c438f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=680&q=80" alt="Everlasting Gobstopper Surprise">
+                        <h3>Gobstopper Surprise</h3>
+                        <p>A flavor that never loses its taste!</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://img.freepik.com/premium-photo/fizzy-soda-float-with-scoop-vanilla-ice-cream_829699-34269.jpg?semt=ais_hybrid" alt="Fizzy Lifting Delight">
+                        <h3>Fizzy Lifting Delight</h3>
+                        <p>It'll lift your spirits and your taste buds!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-us" id="about">
+            <div class="container">
+                <h2>About Our Scrumdiddlyumptious Factory</h2>
+                <p>At Wonka's Ice Cream Paradise, we believe in making the world taste good. Our ice cream is crafted with the finest ingredients, a sprinkle of magic, and a whole lot of imagination. Step into our world where flavors come to life and dreams are served in every scoop!</p>
+                <!-- <a href="#contact" class="btn">Contact Us</a> -->
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <p>&copy; 2024 Ice Cream Paradise. All rights reserved.</p>
+            <p>123, Main Street, Connaught Place, New Delhi - 110001, India</p>
+            <p>Phone: (555-2125-1059) ICECREAM | Email: infoicecreamparadise@gmail.com</p>
+        </div>
+    </footer>
+
+</body>
+</html>

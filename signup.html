@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - Ice Cream Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-image: url('https://b.zmtcdn.com/data/pictures/1/18375391/7555cf63ca520a51011aba5e61cbcf7b.jpg');
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f8ff;
+      margin: 0;
+      flex-direction: column;
+    }
+
+    header {
+      color: white;
+      width: 100%;
+      margin-bottom: 550px;
+      text-align: center;
+      font-family: 'Pacifico', cursive;
+      font-size: 2.5rem;
+      position: fixed;
+      z-index: 1;
+    }
+
+    .signup-container {
+      height: 550px;
+      padding-left: 50px;
+      padding-right: 70px;
+      text-align: center;
+      width: 300px;
+      margin-top: 50px;
+    }
+
+    .signup-header {
+      font-family: 'Pacifico', cursive;
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #fb8888;
+    }
+
+    .signup-input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .signup-button {
+      width: 107%;
+      padding: 10px;
+      background-color: #fb8888;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    .signup-button:hover {
+      background-color: #fc7a7a;
+    }
+
+    p {
+      font-size: 0.9rem;
+      color: #ffffff;
+    }
+
+    .signup-form {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    Welcome to Ice Cream World
+  </header>
+
+  <div class="signup-container">
+    <h2 class="signup-header">Join Our Ice Cream Family!</h2>
+    <p>Sign up to receive exclusive offers and delicious news!</p>
+    
+    <form class="signup-form" onsubmit="saveUserInfo(event)">
+      <input type="text" name="fullname" placeholder="Full Name" class="signup-input" required>
+      <input type="email" name="email" placeholder="Email Address" class="signup-input" required>
+      <input type="tel" name="phone" placeholder="Phone Number" class="signup-input" required>
+      <input type="text" name="address" placeholder="Address" class="signup-input" required>
+      <input type="date" name="dob" class="signup-input" required>
+      <input type="password" name="password" placeholder="Password" class="signup-input" required>
+      <button type="submit" class="signup-button">Sign Up</button>
+    </form>
+  </div>
+
+  <script>
+    function saveUserInfo(event) {
+      event.preventDefault();
+      
+      const fullName = document.querySelector('input[name="fullname"]').value;
+      const email = document.querySelector('input[name="email"]').value;
+      const phone = document.querySelector('input[name="phone"]').value;
+      const address = document.querySelector('input[name="address"]').value;
+      const dob = document.querySelector('input[name="dob"]').value;
+
+      localStorage.setItem('fullName', fullName);
+      localStorage.setItem('email', email);
+      localStorage.setItem('phone', phone);
+      localStorage.setItem('address', address);
+      localStorage.setItem('dob', dob);
+
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

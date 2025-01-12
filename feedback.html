@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Ice Cream Paradise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #fb8888;
+            --secondary-color: #f8b66a;
+            --accent-color: #FFD700;
+            --text-color: #333;
+            --background-color: #F0E6FA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Lobster', cursive;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        main {
+            padding: 50px 0;
+        }
+
+        .feedback-section {
+            background-color: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feedback-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 100px;
+            height: 100px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        .feedback-section::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 100px;
+            height: 100px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        h2 {
+            font-family: 'Lobster', cursive;
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        form {
+            display: grid;
+            gap: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid var(--primary-color);
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: var(--primary-color);
+        }
+
+        .success-message {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .feedback-section {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Header content here  -->
+        <div class="container">
+            <h1>Ice Cream Paradise</h1>
+            <nav>
+                <ul>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="flavors.html">Flavors</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="feedback-section">
+                <h2>Share Your Sweet Thoughts</h2>
+                <form id="feedbackForm">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div>
+                        <label for="favorite-flavor">Favorite Flavor:</label>
+                        <select id="favorite-flavor" name="favorite-flavor" required>
+                            <option value="">Select a flavor</option>
+                            <option value="chocolate-river-swirl">Chocolate River Swirl</option>
+                            <option value="everlasting-gobstopper">Everlasting Gobstopper Surprise</option>
+                            <option value="fizzy-lifting-delight">Fizzy Lifting Delight</option>
+                            <option value="snozzberry-sensation">Snozzberry Sensation</option>
+                            <option value="golden-ticket-caramel">Golden Ticket Caramel Crunch</option>
+                            <option value="oompa-loompa-orange">Oompa Loompa Orange Dream</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="rating">Rate Your Experience:</label>
+                        <select id="rating" name="rating" required>
+                            <option value="">Select a rating</option>
+                            <option value="5">5 - Absolutely Scrumdiddlyumptious!</option>
+                            <option value="4">4 - Wonkalicious!</option>
+                            <option value="3">3 - Pretty Sweet</option>
+                            <option value="2">2 - Needs More Magic</option>
+                            <option value="1">1 - Not So Golden Ticket</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="feedback">Your Feedback:</label>
+                        <textarea id="feedback" name="feedback" required></textarea>
+                    </div>
+                    <button type="submit">Send Feedback</button>
+                </form>
+                
+                <div id="successMessage" class="success-message">
+                    Thank you for your feedback! Your thoughts are as precious as a Golden Ticket to us!
+                </div>
+                
+                <!-- Display feedback after submission -->
+                <div id="feedbackDisplay" class="feedback-display" style="display:none; margin-top: 20px;">
+                    <h3>Your Submitted Feedback:</h3>
+                    <p><strong>Name:</strong> <span id="displayName"></span></p>
+                    <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+                    <p><strong>Favorite Flavor:</strong> <span id="displayFlavor"></span></p>
+                    <p><strong>Rating:</strong> <span id="displayRating"></span></p>
+                    <p><strong>Feedback:</strong> <span id="displayFeedback"></span></p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Footer content here  -->
+        <div class="container">
+            <p>&copy; 2024 Ice Cream Paradise. All rights reserved.</p>
+            <p>123, Main Street, Connaught Place, New Delhi - 110001, India</p>
+            <p>Phone: (555-2125-1059) ICECREAM | Email: info@icecreamparadise@gmail.com</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('feedbackForm');
+            const successMessage = document.getElementById('successMessage');
+            const feedbackDisplay = document.getElementById('feedbackDisplay');
+            const displayName = document.getElementById('displayName');
+            const displayEmail = document.getElementById('displayEmail');
+            const displayFlavor = document.getElementById('displayFlavor');
+            const displayRating = document.getElementById('displayRating');
+            const displayFeedback = document.getElementById('displayFeedback');
+            
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Capture form input values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const favoriteFlavor = document.getElementById('favorite-flavor').value;
+                const rating = document.getElementById('rating').value;
+                const feedbackText = document.getElementById('feedback').value;
+
+                // Display success message
+                successMessage.style.display = 'block';
+
+                // Display the feedback values
+                displayName.textContent = name;
+                displayEmail.textContent = email;
+                displayFlavor.textContent = favoriteFlavor;
+                displayRating.textContent = `${rating} - ${document.querySelector(`#rating option[value="${rating}"]`).textContent}`;
+                displayFeedback.textContent = feedbackText;
+
+                // Show feedback display area
+                feedbackDisplay.style.display = 'block';
+
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+
+                // Optionally reset form after submission
+                form.reset();
+            });
+        });
+    </script>
+</body>
+</html>

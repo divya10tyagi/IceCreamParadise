@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - Ice Cream Paradise</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #fb8888;
+      --secondary-color: #f78787;
+      --accent-color: #f5c564;
+      --text-color: #333;
+      --background-color: #F0E6FA;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .profile-container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 15px;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 20px; /* Adds spacing between the profile and footer */
+    }
+
+    .profile-container::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      left: -50px;
+      width: 200px;
+      height: 200px;
+      background-color: var(--accent-color);
+      border-radius: 50%;
+      opacity: 0.4;
+      z-index: 0;
+    }
+
+    .profile-container::after {
+      content: '';
+      position: absolute;
+      bottom: -50px;
+      right: -50px;
+      width: 150px;
+      height: 150px;
+      background-color: var(--primary-color);
+      border-radius: 50%;
+      opacity: 0.2;
+      z-index: 0;
+    }
+
+    .profile-image {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 5px solid var(--accent-color);
+      margin-bottom: 20px;
+      object-fit: cover;
+      position: relative;
+      z-index: 1;
+    }
+
+    h2 {
+      font-family: 'Lobster', cursive;
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .info-text {
+      margin-bottom: 15px;
+      text-align: left;
+      position: relative;
+      z-index: 1;
+    }
+
+    .info-text p {
+      margin: 5px 0;
+      font-weight: bold;
+    }
+
+    .info-text span {
+      display: block;
+      font-weight: normal;
+      color: var(--secondary-color);
+    }
+
+    .button-container {
+      margin-top: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .button {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      margin: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: var(--secondary-color);
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px 0;
+      width: 100%;
+
+      color: var(--text-color);
+    }
+
+    footer a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-container">
+    <img src="https://cdn4.iconfinder.com/data/icons/mixed-set-1-1/128/28-512.png" alt="Profile Picture" class="profile-image">
+    <h2 id="profile-name">User Name</h2>
+
+    <div class="info-text">
+      <p>Email:</p>
+      <span id="profile-email">Loading...</span>
+    </div>
+    <div class="info-text">
+      <p>Phone:</p>
+      <span id="profile-phone">Loading...</span>
+    </div>
+    <div class="info-text">
+      <p>Address:</p>
+      <span id="profile-address">Loading...</span>
+    </div>
+    <div class="info-text">
+      <p>Date of Birth:</p>
+      <span id="profile-dob">Loading...</span>
+    </div>
+
+    <div class="button-container">
+      <button class="button" id="edit-profile">Edit</button>
+      <button class="button" id="logout">Logout</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Ice Cream Paradise. Designed with <span style="color: var(--accent-color);">&#9829;</span> for dessert lovers. <a href="index.html">Go Back Home</a></p>
+  </footer>
+
+  <script>
+    window.onload = function() {
+      document.getElementById('profile-name').textContent = localStorage.getItem('fullName') || "User Name";
+      document.getElementById('profile-email').textContent = localStorage.getItem('email') || "Email not provided";
+      document.getElementById('profile-phone').textContent = localStorage.getItem('phone') || "Phone not provided";
+      document.getElementById('profile-address').textContent = localStorage.getItem('address') || "Address not provided";
+      document.getElementById('profile-dob').textContent = localStorage.getItem('dob') || "DOB not provided";
+    };
+
+    document.getElementById('edit-profile').addEventListener('click', () => {
+      const fullName = prompt("Edit Name:", localStorage.getItem('fullName'));
+      const email = prompt("Edit Email:", localStorage.getItem('email'));
+      const phone = prompt("Edit Phone:", localStorage.getItem('phone'));
+      const address = prompt("Edit Address:", localStorage.getItem('address'));
+      const dob = prompt("Edit DOB (YYYY-MM-DD):", localStorage.getItem('dob'));
+
+      if (fullName) localStorage.setItem('fullName', fullName);
+      if (email) localStorage.setItem('email', email);
+      if (phone) localStorage.setItem('phone', phone);
+      if (address) localStorage.setItem('address', address);
+      if (dob) localStorage.setItem('dob', dob);
+
+      window.location.reload();
+    });
+
+    document.getElementById('logout').addEventListener('click', () => {
+      localStorage.clear();
+      window.location.href = 'signup.html';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Ice Cream Paradise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #fb8888;
+            --secondary-color: #fcc076;
+            --accent-color: #FFD700;
+            --text-color: #333;
+            --background-color: #F0E6FA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Lobster', cursive;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .hero {
+            background-image: url('https://images.unsplash.com/photo-1527515545081-5db817172677?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(138, 43, 226, 0.6);
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h2 {
+            font-family: 'Lobster', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .magical-text {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .story-section {
+            padding: 50px 0;
+            position: relative;
+        }
+
+        .story-content {
+            background-color: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .story-title {
+            font-family: 'Lobster', cursive;
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .story-text {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .magical-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .magical-element {
+            position: absolute;
+            opacity: 0;
+            animation: float-around 20s linear infinite;
+        }
+
+        .magical-element:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+        .magical-element:nth-child(2) { top: 20%; right: 10%; animation-delay: 5s; }
+        .magical-element:nth-child(3) { bottom: 15%; left: 15%; animation-delay: 10s; }
+        .magical-element:nth-child(4) { bottom: 25%; right: 5%; animation-delay: 15s; }
+
+        .team-section {
+            padding: 50px 0;
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .team-title {
+            font-family: 'Lobster', cursive;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .team-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .team-member {
+            background-color: white;
+            width: 320px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-member img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .team-member-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .team-member-name {
+            font-family: 'Lobster', cursive;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .team-member-role {
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes float-around {
+            0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+            25% { opacity: 1; }
+            75% { opacity: 1; }
+            100% { transform: translate(100px, 100px) rotate(360deg); opacity: 0; }
+        }
+
+        @media (max-width: 768px) {
+            h1, .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .story-title, .team-title {
+                font-size: 2rem;
+            }
+
+            .magical-text, .story-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Ice Cream Paradise</h1>
+            <nav>
+                <ul>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="flavors.html">Flavors</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Our Magical Story</h2>
+                <p class="magical-text">Step into a world where dreams are churned into reality, and every scoop is a ticket to pure imagination.</p>
+            </div>
+        </section>
+
+        <section class="story-section">
+            <div class="container">
+                <div class="story-content">
+                    <h3 class="story-title">A Tale of Sweet Beginnings</h3>
+                    <p class="story-text">Once upon a time, in a land where chocolate rivers flowed and candy trees grew, there was a dreamer named Divyanshi. With a heart full of wonder and a mind brimming with delicious ideas, she set out to create the most magical ice cream the world had ever tasted.</p>
+                    <p class="story-text">In her marvelous kitchen, where the impossible became possible, Divyanshi worked tirelessly. She mixed moonbeams with marshmallows, captured giggles in waffle cones, and sprinkled each scoop with a dash of pure joy.</p>
+                    <p class="story-text">Today, Ice Cream Paradise stands as a testament to that dream. Every flavor we create is a new chapter in our story, inviting you to be part of this never-ending tale of sweetness and delight. Welcome to our world, where every day is a celebration of imagination, and every scoop is a happy ending!</p>
+                </div>
+            </div>
+            <div class="magical-elements">
+                <img src="https://cdn-icons-png.flaticon.com/512/1791/1791341.png" alt="" class="magical-element" style="width: 50px; height: 50px;">
+                <img src="https://cdn-icons-png.flaticon.com/512/1791/1791343.png" alt="" class="magical-element" style="width: 60px; height: 60px;">
+                <img src="https://cdn-icons-png.flaticon.com/512/1791/1791335.png" alt="" class="magical-element" style="width: 40px; height: 40px;">
+                <img src="https://cdn-icons-png.flaticon.com/512/1791/1791339.png" alt="" class="magical-element" style="width: 55px; height: 55px;">
+            </div>
+        </section>
+
+        <section class="team-section">
+            <div class="container">
+                <h3 class="team-title">The Creator Behind the Magic</h3>
+                <div class="team-container">
+                    <div class="team-member">
+                        <img src="./Divyanshi_.jpeg" alt="Divyanshi">
+                        <div class="team-member-info">
+                            <h4 class="team-member-name">Divyanshi</h4>
+                            <p class="team-member-role">Founder & Ice Cream Enchantress</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <p>&copy; 2024 Ice Cream Paradise. All rights reserved.</p>
+            <p>123, Main Street, Connaught Place, New Delhi - 110001, India</p>
+            <p>Phone: (555-2125-1059) ICECREAM | Email: info@icecreamparadise@gmail.com</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const magicalElements = document.querySelectorAll('.magical-element');
+            
+            magicalElements.forEach(element => {
+                element.style.animationDuration = `${Math.random() * 10 + 10}s`;
+                element.style.animationDelay = `${Math.random() * 5}s`;
+            });
+        });
+    </script>
+</body>
+</html>
